@@ -452,7 +452,7 @@ SYM_FUNC_START(__cpu_setup)
 	 * via capabilities.
 	 */
 	mrs	x9, ID_AA64MMFR1_EL1
-	and	x9, x9, #0xf
+	and	x9, x9, #0xf //x9 = x9 & #0xf
 	cbz	x9, 1f
 	orr	x10, x10, #TCR_HA		// hardware Access flag update
 1:

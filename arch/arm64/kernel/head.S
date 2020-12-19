@@ -182,6 +182,9 @@ SYM_CODE_END(preserve_boot_args)
 	.macro populate_entries, tbl, rtbl, index, eindex, flags, inc, tmp1
 .Lpe\@:	phys_to_pte \tmp1, \rtbl
 	orr	\tmp1, \tmp1, \flags	// tmp1 = table entry
+    //index[0] //0x00
+    //index[1] //0x08
+    //index[2] //0x10 <-
 	str	\tmp1, [\tbl, \index, lsl #3]
 	add	\rtbl, \rtbl, \inc	// rtbl = pa next level
 	add	\index, \index, #1

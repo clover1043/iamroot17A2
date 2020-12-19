@@ -396,6 +396,7 @@
 #define SYS_TPIDRRO_EL0			sys_reg(3, 3, 13, 0, 3)
 
 /* Definitions for system register interface to AMU for ARMv8.4 onwards */
+//3, 3, 13, 2, 3
 #define SYS_AM_EL0(crm, op2)		sys_reg(3, 3, 13, (crm), (op2))
 #define SYS_AMCR_EL0			SYS_AM_EL0(2, 0)
 #define SYS_AMCFGR_EL0			SYS_AM_EL0(2, 1)
