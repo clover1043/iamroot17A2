@@ -1,4 +1,4 @@
-# iamroot17차 1조
+# iamroot17차 A-2조
 
 ## links
 - www.iamroot.org | IAMROOT 홈페이지
@@ -93,3 +93,11 @@ http://www.iamroot.org/xe/index.php?document_srl=212973&mid=Note#0
   - ㄴ for_each_subsys
   - ㄴ cgroup_init_subsys
   - ㄴ init_and_link_css
+
+## 17주차
+- 2020.12.19, A_2조, 온라인
+- atomic operations
+  - arch/arm64/include/asm/atomic.h
+  - arch/arm64/include/asm/lse.h
+  - arch/arm64/include/asm/atomic_lse.h
+  - arch/arm64/include/asm/atomic_ll_sc.h
