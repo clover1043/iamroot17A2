@@ -82,6 +82,12 @@ alternative_else_nop_endif
 	 * Task and IRQ stacks are aligned so that SP & (1 << THREAD_SHIFT)
 	 * should always be zero.
 	 */
+    /*
+     * IAMROOT17A2
+     * when CONFIG_VMAP_STACK is enabled, sp is initialized at 32K * N + 16K
+     * Refer to kernel/fork.c:243
+     * THREAD_SIZE=16K, THREAD_ALIGN=32K
+     */
 	add	sp, sp, x0			// sp' = sp + x0
 	sub	x0, sp, x0			// x0' = sp' - x0 = (sp + x0) - x0 = sp
 	tbnz	x0, #THREAD_SHIFT, 0f
@@ -171,6 +177,12 @@ alternative_cb_end
 
 	.if	\el == 0
 	clear_gp_regs
+    /*
+     * IAMROOT17A2
+     * sp_el0 is used as user stack pointer by EL0.
+     * Save this info into x21, and then use sp_el0 to indicate current task in EL1.
+     * current task is saved in __entry_task[per_cpu_offset(cpu)] by __switch_to()
+     */
 	mrs	x21, sp_el0
 	ldr_this_cpu	tsk, __entry_task, x20
 	msr	sp_el0, tsk
