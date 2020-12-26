@@ -101,3 +101,11 @@ http://www.iamroot.org/xe/index.php?document_srl=212973&mid=Note#0
   - arch/arm64/include/asm/lse.h
   - arch/arm64/include/asm/atomic_lse.h
   - arch/arm64/include/asm/atomic_ll_sc.h
+
+## 18주차
+- 2020.12.26, A_2조, 온라인
+- start_kernel
+  - cgroup_init_early() fin.
+  - local_irq_disable() fin. ==> 이미 irq는 disable 되어 있는 것 같은데 다시 disable하는 이유를 확인하다가 kernel_ventry로 빠짐.
+- kernel_ventry
+- el0_irq ongoing
