@@ -120,6 +120,12 @@ static struct workqueue_struct *cgroup_destroy_wq;
 #define SUBSYS(_x) [_x ## _cgrp_id] = &_x ## _cgrp_subsys,
 struct cgroup_subsys *cgroup_subsys[] = {
 #include <linux/cgroup_subsys.h>
+/*
+ * IAMROOT17A2
+ * SUBSYS(cpu) ==> [cpu_cgrp_id] = &cpu_cgrp_subsys,
+ * SUBSYS(io)
+ * ...
+ */
 };
 #undef SUBSYS
 
@@ -127,6 +133,12 @@ struct cgroup_subsys *cgroup_subsys[] = {
 #define SUBSYS(_x) [_x ## _cgrp_id] = #_x,
 static const char *cgroup_subsys_name[] = {
 #include <linux/cgroup_subsys.h>
+/*
+ * IAMROOT17A2
+ * SUBSYS(cpu) ==> [cpu_cgrp_id] = "cpu",
+ * SUBSYS(io)
+ * ...
+ */
 };
 #undef SUBSYS
 
@@ -5079,6 +5091,8 @@ static int online_css(struct cgroup_subsys_state *css)
 	if (!ret) {
 		css->flags |= CSS_ONLINE;
 		rcu_assign_pointer(css->cgroup->subsys[ss->id], css);
+        // &(cgrp_dfl_root.cgrp)->subsys[cpu_cgrp_id] = &root_task_group.css;
+        // &(cgrp_dfl_root.cgrp)->subsys[cpuacct_cgrp_id] = &root_cpuacct.css;
 
 		atomic_inc(&css->online_cnt);
 		if (css->parent)
@@ -5585,6 +5599,12 @@ static void __init cgroup_init_subsys(struct cgroup_subsys *ss, bool early)
 	/* Create the root cgroup state for this subsystem */
 	ss->root = &cgrp_dfl_root;
 	css = ss->css_alloc(cgroup_css(&cgrp_dfl_root.cgrp, ss));
+    /*
+     * = &root_task_group.css (cpu)
+     * or
+     * = &root_cpuacct.css (cpuacct)
+     */
+
 	/* We don't handle early failures gracefully */
 	BUG_ON(IS_ERR(css));
 	init_and_link_css(css, ss, &cgrp_dfl_root.cgrp);

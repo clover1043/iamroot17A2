@@ -7583,7 +7583,11 @@ static inline struct task_group *css_tg(struct cgroup_subsys_state *css)
 static struct cgroup_subsys_state *
 cpu_cgroup_css_alloc(struct cgroup_subsys_state *parent_css)
 {
-	struct task_group *parent = css_tg(parent_css);
+    /*
+     * IAMROOT17A2
+     * parent_css = (&cgrp_dfl_root.cgrp)->subsys[cpu_cgrp_id] = NULL;
+     */
+	struct task_group *parent = css_tg(parent_css); // = NULL;
 	struct task_group *tg;
 
 	if (!parent) {

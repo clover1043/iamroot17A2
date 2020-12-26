@@ -19,6 +19,10 @@
 
 #ifndef __ASSEMBLY__
 
+/*
+ * IAMROOT17A2
+ * (unsigned long)(void *)(x) >= 0xFFFFFFFF_FFFFF001
+ */
 #define IS_ERR_VALUE(x) unlikely((unsigned long)(void *)(x) >= (unsigned long)-MAX_ERRNO)
 
 static inline void * __must_check ERR_PTR(long error)
