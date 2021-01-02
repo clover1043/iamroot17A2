@@ -109,3 +109,10 @@ http://www.iamroot.org/xe/index.php?document_srl=212973&mid=Note#0
   - local_irq_disable() fin. ==> 이미 irq는 disable 되어 있는 것 같은데 다시 disable하는 이유를 확인하다가 kernel_ventry로 빠짐.
 - kernel_ventry
 - el0_irq ongoing
+
+## 19주차
+- 2021.1.2, A_2조, 온라인
+- armv8 exception model: https://developer.arm.com/architectures/learn-the-architecture/exception-model
+- kernel_ventry
+  - kernel_entry
+    - el0_irq
