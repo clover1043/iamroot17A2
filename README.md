@@ -116,3 +116,10 @@ http://www.iamroot.org/xe/index.php?document_srl=212973&mid=Note#0
 - kernel_ventry
   - kernel_entry
     - el0_irq
+
+## 20주차
+- 2021.1.9, A_2조, 온라인
+- el0_irq
+  - ret_to_user
+    - kernel exit
+- el0_svc
