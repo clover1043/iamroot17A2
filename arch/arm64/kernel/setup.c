@@ -283,6 +283,13 @@ u64 cpu_logical_map(int cpu)
 
 void __init __no_sanitize_address setup_arch(char **cmdline_p)
 {
+    /*
+     * IAMROOT17A2
+     *  ffff800010000000 T _text
+     *  ffff800010de0000 R _etext
+     *  ffff800011d3a200 D _edata
+     *  ffff800011dc0000 B _end
+     */
 	init_mm.start_code = (unsigned long) _text;
 	init_mm.end_code   = (unsigned long) _etext;
 	init_mm.end_data   = (unsigned long) _edata;
