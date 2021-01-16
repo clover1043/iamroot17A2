@@ -123,3 +123,11 @@ http://www.iamroot.org/xe/index.php?document_srl=212973&mid=Note#0
   - ret_to_user
     - kernel exit
 - el0_svc
+
+## 21주차
+- 2021.1.16, A_2조, 온라인
+- boot_cpu_init
+- page_address_init
+- early_security_init
+- setup_arch
+  - kaslr_require_kpti
