@@ -131,3 +131,10 @@ http://www.iamroot.org/xe/index.php?document_srl=212973&mid=Note#0
 - early_security_init
 - setup_arch
   - kaslr_require_kpti
+
+## 22주차
+- 2021.1.23, A_2조, 온라인
+- setup_arch
+  - early_fixmap_init
+  http://jake.dothome.co.kr/fixmap/
+  http://jake.dothome.co.kr/kmap/
