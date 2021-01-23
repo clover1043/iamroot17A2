@@ -62,6 +62,11 @@ static pud_t bm_pud[PTRS_PER_PUD] __page_aligned_bss __maybe_unused;
 
 static DEFINE_SPINLOCK(swapper_pgdir_lock);
 
+/*
+ * IAMROOT17A2
+ * pgdp = swapper_pg_dir+index
+ * pgd = phys(bm_pud)
+ */
 void set_swapper_pgd(pgd_t *pgdp, pgd_t pgd)
 {
 	pgd_t *fixmap_pgdp;
@@ -1186,7 +1191,7 @@ void __init early_fixmap_init(void)
 
 	pgdp = pgd_offset_k(addr);
 	p4dp = p4d_offset(pgdp, addr);
-	p4d = READ_ONCE(*p4dp);
+	p4d = READ_ONCE(*p4dp); // = {0}
 	if (CONFIG_PGTABLE_LEVELS > 3 &&
 	    !(p4d_none(p4d) || p4d_page_paddr(p4d) == __pa_symbol(bm_pud))) {
 		/*

@@ -103,6 +103,12 @@ static inline pud_t *pud_offset(p4d_t *p4d, unsigned long address)
 
 static inline pgd_t *pgd_offset_pgd(pgd_t *pgd, unsigned long address)
 {
+    /*
+     * IAMROOT17A2
+     * pgd = (pgd_t *)swapper_pg_dir;
+     * *pgd = {0};
+     * *(pgd + idx) = {0};
+     */
 	return (pgd + pgd_index(address));
 };
 
