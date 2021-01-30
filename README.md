@@ -138,3 +138,11 @@ http://www.iamroot.org/xe/index.php?document_srl=212973&mid=Note#0
   - early_fixmap_init
   http://jake.dothome.co.kr/fixmap/
   http://jake.dothome.co.kr/kmap/
+
+## 23주차
+- 2021.1.30, A_2조, 온라인
+- setup_arch
+  - setup_machine_fdt
+    - fixmap_remap_fdt
+  https://jamboard.google.com/u/0/d/1xDoyzjbikzI86vP4zu3idWlxlX8qYVKk5Wmmjs7swL8/viewer
+- memblock_reserve & early_init_dt_scan 은 차주에 재개.
