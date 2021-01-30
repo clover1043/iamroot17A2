@@ -105,7 +105,7 @@ static inline pgd_t *pgd_offset_pgd(pgd_t *pgd, unsigned long address)
 {
     /*
      * IAMROOT17A2
-     * pgd = (pgd_t *)swapper_pg_dir;
+     * pgd = (pgd_t *)init_pg_dir;
      * *pgd = {0};
      * *(pgd + idx) = {0};
      */
