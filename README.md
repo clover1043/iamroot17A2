@@ -146,3 +146,8 @@ http://www.iamroot.org/xe/index.php?document_srl=212973&mid=Note#0
     - fixmap_remap_fdt
   https://jamboard.google.com/u/0/d/1xDoyzjbikzI86vP4zu3idWlxlX8qYVKk5Wmmjs7swL8/viewer
 - memblock_reserve & early_init_dt_scan 은 차주에 재개.
+
+## 24주차
+- 2021.02.06, A_2조, 온라인
+- setup_arch
+  - setup_machine_fdt
