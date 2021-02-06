@@ -61,6 +61,12 @@ int fdt_nop_property(void *fdt, int nodeoffset, const char *name)
 	struct fdt_property *prop;
 	int len;
 
+    /*
+     * IAMROOT17A2 21.02.06
+     * use _w which returns (struct fdt_property *) instead of
+     * (const struct fdt_property *).
+     * This way we can avoid warnings when compiled with -Wcast-qual.
+     */
 	prop = fdt_get_property_w(fdt, nodeoffset, name, &len);
 	if (!prop)
 		return len;
